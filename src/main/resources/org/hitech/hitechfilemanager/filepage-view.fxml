@@ -15,7 +15,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.hitech.hitechfilemanager.HiTechFileManagerController">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="1.0" prefHeight="24.0" prefWidth="746.0" text="Hi-Tech File Manager">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="1.0" onMouseClicked="#onArrowClick" prefHeight="24.0" prefWidth="746.0" text="Hi-Tech File Manager">
          <font>
             <Font size="18.0" />
          </font>
@@ -147,33 +147,41 @@
                   <Image url="@../../../../../../../../../Users/USER/Downloads/search.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="17.0" fitWidth="22.0" layoutX="21.0" layoutY="14.0">
+            <ImageView fx:id="backwardDirectory" fitHeight="17.0" fitWidth="22.0" layoutX="21.0" layoutY="14.0" onMouseClicked="#onArrowClick">
                <image>
                   <Image url="@../../../../../../../../../Users/USER/Pictures/uparrowicon.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="22.0" fitWidth="14.0" layoutX="103.0" layoutY="13.0">
+            <ImageView fx:id="upDirectory" fitHeight="22.0" fitWidth="14.0" layoutX="103.0" layoutY="13.0">
                <image>
                   <Image url="@../../../../../../../../../Users/USER/Pictures/up.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="17.0" fitWidth="23.0" layoutX="55.0" layoutY="14.0">
+            <ImageView fx:id="forwardDirectory" fitHeight="17.0" fitWidth="23.0" layoutX="55.0" layoutY="14.0">
                <image>
                   <Image url="@../../../../../../../../../Users/USER/Pictures/uparrowicon%20(2).png" />
                </image>
             </ImageView>
-            <TextField fx:id="pathTextField" layoutX="126.0" layoutY="9.0" prefHeight="30.0" prefWidth="450.0">
+            <TextField fx:id="pathTextField" layoutX="126.0" layoutY="9.0" prefHeight="30.0" prefWidth="450.0" text="C:\">
                <font>
                   <Font size="13.0" />
                </font>
             </TextField>
-            <Label fx:id="pathLabel" layoutX="126.0" layoutY="8.0" onContextMenuRequested="#changeFormat" onMouseClicked="#pathLabelAction" prefHeight="30.0" prefWidth="450.0" text="C:/">
+            <Label fx:id="pathLabel" disable="true" layoutX="126.0" layoutY="8.0" onContextMenuRequested="#changeFormat" onMouseClicked="#pathLabelAction" opacity="0.0" prefHeight="30.0" prefWidth="450.0" text="C:\">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
+               <font>
+                  <Font size="10.0" />
+               </font>
             </Label>
          </children>
       </AnchorPane>
+      <ScrollPane layoutY="194.0" prefHeight="347.0" prefWidth="267.0">
+         <content>
+            <VBox prefHeight="347.0" prefWidth="274.0" />
+         </content>
+      </ScrollPane>
       <ScrollPane layoutX="1.0" layoutY="195.0" prefHeight="347.0" prefWidth="267.0">
          <content>
             <VBox prefHeight="345.0" prefWidth="264.0" spacing="5.0">
@@ -185,7 +193,7 @@
                               <Font name="System Bold" size="17.0" />
                            </font>
                         </Label>
-                        <Label alignment="BOTTOM_LEFT" contentDisplay="CENTER" onMouseClicked="#onHomeDirectoryClick" prefHeight="27.0" prefWidth="219.0" text="Local disk">
+                        <Label alignment="BOTTOM_LEFT" contentDisplay="CENTER" onMouseClicked="#onHomeDirectoryClick" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExit" prefHeight="27.0" prefWidth="219.0" text="Local disk">
                            <padding>
                               <Insets bottom="3.0" />
                            </padding>
@@ -218,9 +226,9 @@
       <Separator layoutX="-1.0" layoutY="194.0" prefHeight="1.0" prefWidth="267.0" />
       <ScrollPane layoutX="270.0" layoutY="166.0">
          <content>
-            <VBox fx:id="fileVbox" prefHeight="376.0" prefWidth="479.0">
+            <VBox fx:id="fileVbox" prefHeight="376.0" prefWidth="479.0" spacing="10.0">
                <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets bottom="10.0" left="10.0" right="30.0" top="10.0" />
                </padding>
             </VBox>
          </content>

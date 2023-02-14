@@ -1,21 +1,34 @@
 package org.hitech.hitechfilemanager;
 
-import java.io.File;
+import java.io.*;
+import java.util.Scanner;
 
 public class FileBasicActions {
 
-    public void copy(File sourceFile, File destinationFile){
+    public void copy(File sourceFile, File destinationFile) throws Exception{
+        Scanner fileReader = new Scanner(new FileReader(sourceFile));
+        PrintWriter fileWriter = new PrintWriter(new FileWriter(destinationFile));
+        do {
+             fileWriter.println(fileReader.next());
+        }
+        while(fileReader.hasNext());
     }
 
-    public void move(File sourceFile, File destinationFile){
+    public void duplicate(File sourceFile){
 
+    }
+
+
+    public void move(File sourceFile, File destinationFile) throws Exception{
+     copy(sourceFile,destinationFile);
+     sourceFile.delete();
     }
 
     public void deleteFiles(File... fileToBeDeleted){
 
     }
 
-    public void pasteFiles(File... files){
+    public void openFile(File file){
 
     }
 
