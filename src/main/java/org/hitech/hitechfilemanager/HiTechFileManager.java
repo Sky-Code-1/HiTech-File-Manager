@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class HiTechFileManager extends Application {
+    private final HiTechFileManagerController controller = new HiTechFileManagerController();
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HiTechFileManager.class.getResource("filepage-view.fxml"));
@@ -17,6 +18,7 @@ public class HiTechFileManager extends Application {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+//        controller.openFolder("C:\\");
     }
 
     public static void main(String[] args) {
